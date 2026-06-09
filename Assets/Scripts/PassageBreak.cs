@@ -27,6 +27,7 @@ public class PassageBreak : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         passageSprite.gameObject.SetActive(false);
+        GameManager.Instance.PassageDestroyed();
 
         GetComponent<Collider2D>().enabled = false;
     }

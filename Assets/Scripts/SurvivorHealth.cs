@@ -1,11 +1,22 @@
 using UnityEngine;
+
 using System.Collections;
 
 public class SurvivorHealth : MonoBehaviour
 {
+    public ParticleSystem bloodParticles;
+    private AudioSource audioSource;
     public int health = 2;
 
+    public HealthUI healthUI;
+
     private bool invincible = false;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        healthUI.UpdateHealth(health);
+    }
 
     public void TakeHit(GameObject killer)
     {
@@ -13,12 +24,17 @@ public class SurvivorHealth : MonoBehaviour
             return;
 
         health--;
+        bloodParticles.Play();
+        audioSource.Play();
+
+        healthUI.UpdateHealth(health);
 
         Debug.Log("Survivor HP: " + health);
 
         if (health <= 0)
         {
-            GameManager.Instance.EndGame("KILLER WINS"); return;
+            GameManager.Instance.EndGame("KILLER WINS");
+            return;
         }
 
         StartCoroutine(HitEffect(killer));

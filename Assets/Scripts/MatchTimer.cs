@@ -3,6 +3,11 @@ using TMPro;
 
 public class MatchTimer : MonoBehaviour
 {
+    public PlayerMovement killerMovement;
+
+    private bool bloodlust1Activated = false;
+    private bool bloodlust2Activated = false;
+  
     public float matchTime = 120f;
 
     public TMP_Text timerText;
@@ -11,6 +16,7 @@ public class MatchTimer : MonoBehaviour
 
     void Update()
     {
+
         if (matchEnded)
             return;
 
@@ -23,6 +29,30 @@ public class MatchTimer : MonoBehaviour
 
             GameManager.Instance.EndGame("SURVIVOR WINS");
         }
+        if (!bloodlust1Activated && matchTime <= 25f)
+        {
+            bloodlust1Activated = true;
+
+            killerMovement.moveSpeed += 0.5f;
+            killerMovement.currentSpeed += 0.5f;
+
+            StartCoroutine(
+                GameManager.Instance.ShowBloodlustText()
+            );
+        }
+
+        if (!bloodlust2Activated && matchTime <= 5f)
+        {
+            bloodlust2Activated = true;
+
+            killerMovement.moveSpeed += 1f;
+            killerMovement.currentSpeed += 1f;
+
+            StartCoroutine(
+                GameManager.Instance.ShowBloodlustText()
+            );
+        }
+
 
         UpdateTimerUI();
     }

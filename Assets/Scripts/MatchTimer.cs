@@ -33,7 +33,7 @@ public class MatchTimer : MonoBehaviour
         {
             bloodlust1Activated = true;
 
-            killerMovement.moveSpeed += 0.5f;
+            killerMovement.moveSpeed += 0.3f;
             killerMovement.currentSpeed += 0.5f;
 
             StartCoroutine(

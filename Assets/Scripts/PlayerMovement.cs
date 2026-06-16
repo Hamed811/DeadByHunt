@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private CharacterDirection direction;
     public float moveSpeed = 5f;
     public float currentSpeed;
 
@@ -10,9 +11,14 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode leftKey;
     public KeyCode rightKey;
 
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
+        direction = GetComponent<CharacterDirection>();
         currentSpeed = moveSpeed;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -31,6 +37,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(rightKey))
             movement.x += 1;
 
+        if (movement.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (movement.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        if (direction != null)
+        {
+            direction.UpdateDirection(movement);
+        }
         movement.Normalize();
 
         transform.position += (Vector3)movement * currentSpeed * Time.deltaTime;

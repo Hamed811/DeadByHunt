@@ -744,6 +744,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8300ff18b8ee2a8468b0215cb37ca916, type: 3}
+--- !u!1 &169460468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 169460470}
+  - component: {fileID: 169460469}
+  m_Layer: 0
+  m_Name: PowerupSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &169460469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169460468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82950bd39fdc7ad4e841b9574681986c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerupSpawner
+  speedPowerupPrefab: {fileID: 194975917840051422, guid: aa7daceed685841479032e1d0ad1ec50, type: 3}
+  teleportPowerupPrefab: {fileID: 775477625848925419, guid: b118722250501bc4588929b6778b300a, type: 3}
+  spawnInterval: 15
+--- !u!4 &169460470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169460468}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.4, y: 2.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174411762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,7 +2630,7 @@ GameObject:
   - component: {fileID: 467694687}
   - component: {fileID: 467694686}
   m_Layer: 0
-  m_Name: grenze1
+  m_Name: untere wand grenze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4523,7 +4570,7 @@ GameObject:
   - component: {fileID: 737486265}
   - component: {fileID: 737486264}
   m_Layer: 0
-  m_Name: grenze2
+  m_Name: obere wand grenze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5445,6 +5492,8 @@ GameObject:
   - component: {fileID: 800439299}
   - component: {fileID: 800439301}
   - component: {fileID: 800439302}
+  - component: {fileID: 800439303}
+  - component: {fileID: 800439304}
   m_Layer: 6
   m_Name: Survivor
   m_TagString: Survivor
@@ -5720,6 +5769,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &800439303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800439295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27337868fb1b134a87ef50de4106d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDirection
+  rightSprite: {fileID: -6895399881985577254, guid: acf3f71e97040ca419be2b447fa7265a, type: 3}
+  upSprite: {fileID: -2182099292127686526, guid: 2eb52f2fbd12bc34bb4591571a577677, type: 3}
+  downSprite: {fileID: -1991707697661605139, guid: b0618dd687d59134b97b7248289fca1a, type: 3}
+--- !u!114 &800439304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800439295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b93b41a6378e3409c12b6f4eb3b588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportAbility
+  hasTeleport: 0
+  teleportDistance: 1
 --- !u!1 &842086483
 GameObject:
   m_ObjectHideFlags: 0
@@ -15147,7 +15225,7 @@ GameObject:
   - component: {fileID: 1525273180}
   - component: {fileID: 1525273179}
   m_Layer: 0
-  m_Name: grenze3
+  m_Name: rechte wand grenze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15654,6 +15732,7 @@ GameObject:
   - component: {fileID: 1645201001}
   - component: {fileID: 1645201000}
   - component: {fileID: 1645201003}
+  - component: {fileID: 1645201004}
   m_Layer: 7
   m_Name: Killer
   m_TagString: Killer
@@ -15710,7 +15789,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2115340344929662562, guid: a6c4f307683884fe5b454e49a5cf6458, type: 3}
+  m_Sprite: {fileID: 1158792694008574164, guid: 78045041addd7dc45ae12662a74ebeb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15828,6 +15907,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f9bde8ea7638a40aadceb3a48f12bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KillerHit
+--- !u!114 &1645201004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645200997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27337868fb1b134a87ef50de4106d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDirection
+  rightSprite: {fileID: 6730972929628127494, guid: 29e07e27cdc2b134a8054e9f89510218, type: 3}
+  upSprite: {fileID: -995916686177336856, guid: d7eca12ce0ccc2247be4da919549e049, type: 3}
+  downSprite: {fileID: 1158792694008574164, guid: 78045041addd7dc45ae12662a74ebeb4, type: 3}
 --- !u!1 &1663969184
 GameObject:
   m_ObjectHideFlags: 0
@@ -17390,7 +17484,7 @@ GameObject:
   - component: {fileID: 1914484212}
   - component: {fileID: 1914484211}
   m_Layer: 0
-  m_Name: grenze
+  m_Name: linker wand grenze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17756,7 +17850,7 @@ RectTransform:
   m_GameObject: {fileID: 1986155580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1663969185}
@@ -17764,7 +17858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27.709, y: -22.756}
+  m_AnchoredPosition: {x: -13.1, y: -11.6}
   m_SizeDelta: {x: 55.4182, y: 45.5111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986155582
@@ -18673,3 +18767,4 @@ SceneRoots:
   - {fileID: 737610287}
   - {fileID: 1740161738}
   - {fileID: 328080836}
+  - {fileID: 169460470}

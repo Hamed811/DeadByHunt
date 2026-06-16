@@ -3,6 +3,11 @@ using TMPro;
 
 public class MatchTimer : MonoBehaviour
 {
+
+    void Start()
+    {
+        matchTime = GameSettings.MatchTime;
+    }
     public PlayerMovement killerMovement;
 
     private bool bloodlust1Activated = false;

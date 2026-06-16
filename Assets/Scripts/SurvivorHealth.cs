@@ -14,6 +14,7 @@ public class SurvivorHealth : MonoBehaviour
 
     void Start()
     {
+        health = GameSettings.SurvivorHP;
         audioSource = GetComponent<AudioSource>();
         healthUI.UpdateHealth(health);
     }

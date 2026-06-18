@@ -3,10 +3,13 @@ using TMPro;
 
 public class MatchTimer : MonoBehaviour
 {
+    private SpriteRenderer killerSprite;
 
     void Start()
     {
         matchTime = GameSettings.MatchTime;
+        killerSprite = killerMovement.GetComponent<SpriteRenderer>();
+
     }
     public PlayerMovement killerMovement;
 
@@ -41,6 +44,8 @@ public class MatchTimer : MonoBehaviour
             killerMovement.moveSpeed += 0.3f;
             killerMovement.currentSpeed += 0.5f;
 
+            killerSprite.color = new Color(1f, 0.6f, 0.6f);
+
             StartCoroutine(
                 GameManager.Instance.ShowBloodlustText()
             );
@@ -52,6 +57,9 @@ public class MatchTimer : MonoBehaviour
 
             killerMovement.moveSpeed += 1f;
             killerMovement.currentSpeed += 1f;
+
+            killerSprite.color = Color.red;
+
 
             StartCoroutine(
                 GameManager.Instance.ShowBloodlustText()

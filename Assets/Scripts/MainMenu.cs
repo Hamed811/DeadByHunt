@@ -5,6 +5,8 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
+        Time.timeScale = 1f;
+
         if (MapManager.selectedMap == 1)
             SceneManager.LoadScene("Gameplay");
         else if (MapManager.selectedMap == 2)

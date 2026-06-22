@@ -15,12 +15,15 @@ public class TeleportPowerup : MonoBehaviour
         {
             ability.hasTeleport = true;
 
+            GameManager.Instance.teleportReadyText.SetActive(true);
+
             Debug.Log("Teleport Collected!");
 
             AudioSource.PlayClipAtPoint(
               pickupSound,
               transform.position
               );
+
             Destroy(gameObject);
         }
     }

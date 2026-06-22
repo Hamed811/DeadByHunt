@@ -53,6 +53,7 @@ public class TeleportAbility : MonoBehaviour
             transform.position = newPosition;
 
             hasTeleport = false;
+            GameManager.Instance.teleportReadyText.SetActive(false);
 
             Debug.Log("Teleported!");
         }

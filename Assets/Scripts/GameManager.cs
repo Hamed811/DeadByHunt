@@ -7,7 +7,8 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameObject teleportReadyText;
+    public GameObject replayButton;
     public SurvivorHealth survivor;
     public GameObject speedBoostText;
     public GameObject bloodlustText;
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
         winTextObject.SetActive(true);
 
         winText.text = winner;
+
+        replayButton.SetActive(true);
 
         Time.timeScale = 0f;
     }
@@ -68,7 +71,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        movement.currentSpeed = movement.moveSpeed;
+        movement.currentSpeed -= 2f;
 
         yield return new WaitForSeconds(30f);
 

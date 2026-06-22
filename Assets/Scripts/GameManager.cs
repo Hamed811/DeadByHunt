@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
+    public TMPro.TMP_Text scoreText;
     public GameObject teleportReadyText;
     public GameObject replayButton;
     public SurvivorHealth survivor;
@@ -25,8 +26,35 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        UpdateScoreUI();
+    }
+    void UpdateScoreUI()
+    {
+        scoreText.text =
+            "SURVIVOR " +
+            ScoreManager.survivorScore +
+            " : " +
+            ScoreManager.killerScore +
+            " KILLER";
+    }
+
     public void EndGame(string winner)
     {
+        if (winner == "SURVIVOR WINS")
+        {
+            ScoreManager.survivorScore++;
+        }
+
+        if (winner == "KILLER WINS")
+        {
+            ScoreManager.killerScore++;
+        }
+
+        UpdateScoreUI();
+
+
         winTextObject.SetActive(true);
 
         winText.text = winner;
